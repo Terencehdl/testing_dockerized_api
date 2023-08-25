@@ -1,0 +1,1 @@
+Penser à modifier le chemin pour le volume qui gère les logs dans le docker-compose.yml(volumes:) et dans le script setup.sh (LOG_PATHS)avant de lancer ce dernier

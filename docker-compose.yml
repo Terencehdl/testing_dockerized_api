@@ -1,0 +1,56 @@
+version: '3'
+services:
+  api:
+    image: datascientest/fastapi:1.0.0
+    container_name: api_container
+    ports:
+      - "8000:8000"
+    networks:
+      - mynetwork
+    volumes:
+      - /home/terenceh/Documents/Datascientest-Devops/Docker/examHilderal/app/logs:/app/logs
+ 
+
+  authentication_test:
+    image: authentication_image:latest
+    container_name: authentication_test_container
+    depends_on:
+      - api
+    environment:
+      - LOG=1
+    networks:
+      - mynetwork
+    volumes:
+      - /home/terenceh/Documents/Datascientest-Devops/Docker/examHilderal/app/logs:/app/logs
+   
+
+  authorization_test:
+    image: authorization_image:latest
+    container_name: authorization_test_container
+    depends_on:
+      - api
+    environment:
+      - LOG=1
+    networks:
+      - mynetwork
+    volumes:
+      - /home/terenceh/Documents/Datascientest-Devops/Docker/examHilderal/app/logs:/app/logs
+   
+
+  content_test:
+    image: content_image:latest
+    container_name: content_test_container
+    depends_on:
+      - api
+    environment:
+      - LOG=1
+    networks:
+      - mynetwork
+    volumes:
+      - /home/terenceh/Documents/Datascientest-Devops/Docker/examHilderal/app/logs:/app/logs
+
+networks:
+  mynetwork:
+
+volumes:
+  log:

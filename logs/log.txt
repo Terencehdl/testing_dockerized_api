@@ -1,0 +1,357 @@
+
+============================
+    Authentication test
+============================
+
+request done at "/permissions"
+| username="alice"
+| password="wonderland"
+
+expected result = 200
+actual result = 200
+
+==>  SUCCESS
+
+============================
+    Authentication test
+============================
+
+request done at "/permissions"
+| username="bob"
+| password="builder"
+
+expected result = 200
+actual result = 200
+
+==>  SUCCESS
+
+============================
+    Content test (v1)
+============================
+
+request done at "/v1/sentiment"
+| username="alice"
+| password="wonderland"
+| sentence="life is beautiful"
+
+expected sentiment = positive
+actual sentiment = negative
+score = {"username":"alice","version":"v1","sentence":"life is beautiful","score":0.5994}
+
+==>  FAILURE
+
+============================
+    Authentication test
+============================
+
+request done at "/permissions"
+| username="clementine"
+| password="mandarine"
+
+expected result = 403
+actual result = 403
+
+==>  SUCCESS
+
+============================
+    Content test (v1)
+============================
+
+request done at "/v1/sentiment"
+| username="alice"
+| password="wonderland"
+| sentence="that sucks"
+
+expected sentiment = negative
+actual sentiment = negative
+score = {"username":"alice","version":"v1","sentence":"that sucks","score":-0.3612}
+
+==>  SUCCESS
+
+============================
+    Content test (v2)
+============================
+
+request done at "/v2/sentiment"
+| username="alice"
+| password="wonderland"
+| sentence="life is beautiful"
+
+expected sentiment = positive
+actual sentiment = negative
+score = {"username":"alice","version":"v2","sentence":"life is beautiful","score":0.5994}
+
+==>  FAILURE
+
+============================
+    Content test (v2)
+============================
+
+request done at "/v2/sentiment"
+| username="alice"
+| password="wonderland"
+| sentence="that sucks"
+
+expected sentiment = negative
+actual sentiment = negative
+score = {"username":"alice","version":"v2","sentence":"that sucks","score":-0.3612}
+
+==>  SUCCESS
+
+============================
+    Authorization test (v1)
+============================
+
+request done at "/v1/sentiment"
+| username="alice"
+| password="wonderland"
+| sentence="Life is beautiful."
+
+expected result = 200
+actual result = 200
+score = {"username":"alice","version":"v1","sentence":"Life is beautiful.","score":0.5994}
+
+==>  SUCCESS
+
+============================
+    Authorization test (v2)
+============================
+
+request done at "/v2/sentiment"
+| username="alice"
+| password="wonderland"
+| sentence="Life is beautiful."
+
+expected result = 200
+actual result = 200
+score = {"username":"alice","version":"v2","sentence":"Life is beautiful.","score":0.5994}
+
+==>  SUCCESS
+
+============================
+    Authorization test (v1)
+============================
+
+request done at "/v1/sentiment"
+| username="bob"
+| password="builder"
+| sentence="That sucks."
+
+expected result = 200
+actual result = 200
+score = {"username":"bob","version":"v1","sentence":"That sucks.","score":-0.3612}
+
+==>  SUCCESS
+
+============================
+    Authorization test (v2)
+============================
+
+request done at "/v2/sentiment"
+| username="bob"
+| password="builder"
+| sentence="That sucks."
+
+expected result = 200
+actual result = 403
+score = N/A
+
+==>  FAILURE
+
+============================
+    Authentication test
+============================
+
+request done at "/permissions"
+| username="alice"
+| password="wonderland"
+
+expected result = 200
+actual result = 200
+
+==>  SUCCESS
+
+============================
+    Authentication test
+============================
+
+request done at "/permissions"
+| username="bob"
+| password="builder"
+
+expected result = 200
+actual result = 200
+
+==>  SUCCESS
+
+============================
+    Authentication test
+============================
+
+request done at "/permissions"
+| username="clementine"
+| password="mandarine"
+
+expected result = 403
+actual result = 403
+
+==>  SUCCESS
+
+============================
+    Authorization test (v1)
+============================
+
+request done at "/v1/sentiment"
+| username="alice"
+| password="wonderland"
+| sentence="Life is beautiful."
+
+expected result = 200
+actual result = 200
+score = {"username":"alice","version":"v1","sentence":"Life is beautiful.","score":0.5994}
+
+==>  SUCCESS
+
+============================
+    Content test (v1)
+============================
+
+request done at "/v1/sentiment"
+| username="alice"
+| password="wonderland"
+| sentence="life is beautiful"
+
+expected sentiment = positive
+actual sentiment = negative
+score = {"username":"alice","version":"v1","sentence":"life is beautiful","score":0.5994}
+
+==>  FAILURE
+
+============================
+    Authorization test (v2)
+============================
+
+request done at "/v2/sentiment"
+| username="alice"
+| password="wonderland"
+| sentence="Life is beautiful."
+
+expected result = 200
+actual result = 200
+score = {"username":"alice","version":"v2","sentence":"Life is beautiful.","score":0.5994}
+
+==>  SUCCESS
+
+============================
+    Content test (v1)
+============================
+
+request done at "/v1/sentiment"
+| username="alice"
+| password="wonderland"
+| sentence="that sucks"
+
+expected sentiment = negative
+actual sentiment = negative
+score = {"username":"alice","version":"v1","sentence":"that sucks","score":-0.3612}
+
+==>  SUCCESS
+
+============================
+    Authorization test (v1)
+============================
+
+request done at "/v1/sentiment"
+| username="bob"
+| password="builder"
+| sentence="That sucks."
+
+expected result = 200
+actual result = 200
+score = {"username":"bob","version":"v1","sentence":"That sucks.","score":-0.3612}
+
+==>  SUCCESS
+
+============================
+    Content test (v2)
+============================
+
+request done at "/v2/sentiment"
+| username="alice"
+| password="wonderland"
+| sentence="life is beautiful"
+
+expected sentiment = positive
+actual sentiment = negative
+score = {"username":"alice","version":"v2","sentence":"life is beautiful","score":0.5994}
+
+==>  FAILURE
+
+============================
+    Authorization test (v2)
+============================
+
+request done at "/v2/sentiment"
+| username="bob"
+| password="builder"
+| sentence="That sucks."
+
+expected result = 200
+actual result = 403
+score = N/A
+
+==>  FAILURE
+
+============================
+    Content test (v2)
+============================
+
+request done at "/v2/sentiment"
+| username="alice"
+| password="wonderland"
+| sentence="that sucks"
+
+expected sentiment = negative
+actual sentiment = negative
+score = {"username":"alice","version":"v2","sentence":"that sucks","score":-0.3612}
+
+==>  SUCCESS
+
+============================
+    Authentication test
+============================
+
+request done at "/permissions"
+| username="alice"
+| password="wonderland"
+
+expected result = 200
+actual result = 200
+
+==>  SUCCESS
+
+============================
+    Authentication test
+============================
+
+request done at "/permissions"
+| username="bob"
+| password="builder"
+
+expected result = 200
+actual result = 200
+
+==>  SUCCESS
+
+============================
+    Authentication test
+============================
+
+request done at "/permissions"
+| username="clementine"
+| password="mandarine"
+
+expected result = 403
+actual result = 403
+
+==>  SUCCESS
